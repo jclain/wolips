@@ -70,6 +70,8 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.objectstyle.wolips.builder.BuilderPlugin;
 import org.objectstyle.wolips.core.resources.types.project.IProjectPatternsets;
 
+import run.univ.wosrc.WOSrcTask;
+
 /**
  * @author Harald Niesche
  */
@@ -242,7 +244,11 @@ public class BuildVisitor extends BuildHelper {
 			handled = true;
 		} else {
 			if (!(res.isTeamPrivateMember() || res.getName().equals(".svn"))) {
-				addTask(new CopyTask(res, copyToPath, "build"));
+				if ("wosrc".equals(res.getFileExtension())) {
+					addTask(new WOSrcTask(res, copyToPath, "build"));
+				} else {
+					addTask(new CopyTask(res, copyToPath, "build"));
+				}
 				handled = true;
 			}
 		}
