@@ -276,7 +276,7 @@ public class Cls {
     public static Method getMethod(Class c, String m, Object arg) {
         if (arg == null) {
             try {
-                return c.getMethod(m, null);
+                return c.getMethod(m, (Class[])null);
             } catch (NoSuchMethodException e) {
                 throw new RuntimeException(e);
             }
@@ -490,7 +490,7 @@ public class Cls {
         }
         Method m;
         try {
-            m = c.getMethod(propertyName, null);
+            m = c.getMethod(propertyName, (Class[])null);
         } catch (SecurityException e) {
             throw new IllegalArgumentException("La méthode " + propertyName
                     + " n'est pas accessible");
@@ -595,7 +595,7 @@ public class Cls {
         } else if (field instanceof Method) {
             Method m = (Method)field;
             try {
-                value = m.invoke(obj, null);
+                value = m.invoke(obj, (Object[])null);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

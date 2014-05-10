@@ -17,10 +17,10 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.LexicalHandler;
 
 import run.univ.Cls;
-import run.univ.base.xml.HTMLBuilder;
-import run.univ.base.xml.XMLAttributes;
-import run.univ.base.xml.XMLBuilder;
-import run.univ.base.xml.base.AbstractXMLBuilder;
+import run.univ.wosrc.rubasem.AbstractXMLBuilder;
+import run.univ.wosrc.rubasem.HTMLBuilder;
+import run.univ.wosrc.rubasem.XMLAttributes;
+import run.univ.wosrc.rubasem.XMLBuilder;
 import run.univ.xml.base.Namespaces;
 
 public class ComponentHandler implements ContentHandler, ErrorHandler, LexicalHandler {
@@ -44,11 +44,6 @@ public class ComponentHandler implements ContentHandler, ErrorHandler, LexicalHa
 
 	public ComponentHandler(Writer htmlWriter, Writer wodWriter, Writer wooWriter, boolean html, boolean indentHtml, String encoding) {
 		this.htmlw = htmlWriter;
-		// this.htmlb = new XMLBuilder(null, indentHtml, html, encoding) {
-		// protected void write(String text) throws IOException {
-		// htmlw.write(text);
-		// }
-		// };
 		if (html)
 			this.htmlb = new HTMLBuilder(htmlw);
 		else
