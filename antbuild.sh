@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8 mode: sh -*- vim:sw=4:sts=4:et:ai:si:sta:fenc=utf-8
 
-ITER=1
+ITER=2
 JAVA_HOME=~/opt/jvm64/sun-jdk-1.5
 
 ################################################################################
