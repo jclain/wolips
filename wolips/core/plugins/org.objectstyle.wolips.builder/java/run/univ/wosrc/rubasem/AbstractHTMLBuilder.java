@@ -218,6 +218,8 @@ public abstract class AbstractHTMLBuilder extends AbstractXMLBuilder {
         }
 
         public void comment() {
+            RawHTMLTag currentTag = currentTag();
+            if (currentTag != null) currentTag.setHasElementChildren();
             commitElements();
             writeCommitables();
         }

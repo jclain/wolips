@@ -907,6 +907,9 @@ public abstract class AbstractXMLBuilder implements IXMLBuilder {
 		}
 
 		public void comment() {
+			IndentedXMLTag currentTag = currentTag();
+			if (currentTag != null)
+				currentTag.setHasElementChildren();
 			commitElements();
 			writeCommitables();
 		}
