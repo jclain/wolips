@@ -66,7 +66,8 @@ public class XB {
 		SB.replaceAll(tmp, "--", "- -");
 		SB.replaceAll(tmp, "--", "- -");
 		// traiter le dernier '-' pour ne pas faire conflit avec le '-->' de fin
-		if (tmp.charAt(tmp.length() - 1) == '-') tmp.append(" ");
+		int length = tmp.length();
+		if (length > 0 && tmp.charAt(length - 1) == '-') tmp.append(" ");
 		sb.append(tmp);
 		sb.append("-->");
 		return sb;
